@@ -1,0 +1,90 @@
+"Брал осюда руководство
+"https://netdotwork.github.io/vim-python/
+
+
+"""""""""""""""""""""""""" VINBLE """""""""""""""""""""""""
+"git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+"Plugin 'scrooloose/nerdtree'
+" the place for other plugins
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"
+" """""""""""""""""""""""" END """""""""""""""""""""""""""""
+"
+" """"""""""""""""""""""" PLUGIN """""""""""""""""""""""""""
+Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes' 
+Plugin 'scrooloose/nerdtree'
+"Plugin ‘vim-scripts/indentpython.vim’ 
+let NERDTreeIgnore=['\.pyc$', '\~$']"
+" """""""""""""""""""""""" END """""""""""""""""""""""""""""
+"
+"
+"
+" """"""""""""""""""""" MAPPING MAP """"""""""""""""""""""""
+" " map NERDTree on F3
+map <F3> :NERDTreeToggle<CR>
+"
+" """"""""""""""""""" ОТСТУПЫ в PEP8 """""""""""""""""""""""
+" 
+" au BufRead,BufNewFile *.py,*pyw set tabstop=4
+au BufRead,BufNewFile *.py,*pyw set softtabstop=4
+au BufRead,BufNewFile *.py,*pyw set autoindent
+au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
+au BufRead,BufNewFile *.py,*.pyw set expandtab
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h set textwidth=79
+au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
+
+" for full stack development
+au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2
+au BufNewFile,BufRead *.js, *.html, *.css set shiftwidth=2
+au BufNewFile,BufRead *.js, *.html, *.css set softtabstop=2
+"
+"
+ """""""""""""""""""""""" END """""""""""""""""""""""""""""
+
+ 
+set encoding=utf-8"
+set number
+let python_highlight_all=1
+syntax on
+colorscheme molokai "diogrun
+"let g:molokai_original = 1
+" air-line settings
+" enable tab line with vim-airline plugin
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_skip_empty_sections = 1
+let g:airline_theme='serene'
+"let g:airline_section_y = '%{virtualenv#statusline()}'
+
+let python_highlight_all=1
+syntax on
+
+" Настрой автодоплнения скобок
+imap ( ("")<ESC>hi
