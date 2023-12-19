@@ -1,0 +1,59 @@
+set syntax on
+set colorcolumn=80
+set textwidth=80
+set encoding=utf-8
+set number
+colorscheme OceanicNext "molokai
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+"============= Vunble =======================================
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Exafunction/codeium.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'preservim/nerdtree'
+Plugin 'nvie/vim-flake8'
+Plugin 'vim-scripts/pep8'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'klen/python-mode'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"============= End Vunble ===================================
+
+"
+
+"============= Settings pep =====================================
+let g:pep8_map = 0
+let g:pep8_ignore = "E402"
+let g:pep8_show_first_2 = 0
+let g:pep8_show_first_3 = 1
+let g:pep8_show_first_4 = 1
+let g:pep8_show_first_5 = 1
+let g:pep8_show_first_8 = 1
+let g:pep8_show_first_79 = 1
+let g:pep8_show_first_80 = 1
+let g:pep8_show_first_100 = 1
+let g:pep8_show_first_110 = 1
+let g:pep8_show_first_120 = 1
+"=============  End Settings pep =================================
+
+"
+
+"============= Mapping ======================================
+" Настройка отладчика для Python
+augroup python
+    autocmd!
+    autocmd FileType python nmap <buffer> <F5> :w<CR>:silent !python3 %<CR>
+    autocmd FileType python nmap <buffer> <F8> :w<CR>:silent !python3 -m pdb %<CR>
+augroup END
+nnoremap <F9> :w<CR>:silent !python3 %<CR>
+nnoremap <F3> :NERDTreeToggle<CR>
+"============= End Mapping =================================
